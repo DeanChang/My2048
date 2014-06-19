@@ -391,5 +391,5 @@ function showtime()
 	/// <summary>
     /// 計算時間
 	/// </summary>
-    $("#time").text("使用時間：" + (++time) + " s。");
+    $("#time").text("使用時間：" + (++time) + " 秒");
 }
