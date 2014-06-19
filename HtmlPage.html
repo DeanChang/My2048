@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Trend 2048 Game</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+    <link href="bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    
+    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="My2048.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div class="div-round" id="tips">↑/↓/←/→ 控制方向</div>
+        <hr />
+        <div id="leftTip">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">總分數</h3>
+                </div>
+                <div class="panel-body" id="score">
+                    總分數:00
+                </div>
+            </div>
+
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">目前最大數</h3>
+                </div>
+                <div class="panel-body">
+                    目前最大數:
+                </div>
+            </div>
+
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">目前使用時間</h3>
+                </div>
+                <div class="panel-body">
+                    目前使用時間: 0 秒
+                </div>
+            </div>
+            <!--  提示點選方向 -->
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">點選方向</h3>
+                </div>
+                <div class="panel-body" id="keys">
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <div id="game-panel">
+                <div class="div-round" id="box-main">
+                    <div class="div-round box-lm" id="box0"></div>
+                    <div class="div-round box-lm" id="box1"></div>
+                    <div class="div-round box-lm" id="box2"></div>
+                    <div class="div-round box-lm" id="box3"></div>
+                    <div class="div-round box-lm" id="box4"></div>
+                    <div class="div-round box-lm" id="box5"></div>
+                    <div class="div-round box-lm" id="box6"></div>
+                    <div class="div-round box-lm" id="box7"></div>
+                    <div class="div-round box-lm" id="box8"></div>
+                    <div class="div-round box-lm" id="box9"></div>
+                    <div class="div-round box-lm" id="boxa"></div>
+                    <div class="div-round box-lm" id="boxb"></div>
+                    <div class="div-round box-lm" id="boxc"></div>
+                    <div class="div-round box-lm" id="boxd"></div>
+                    <div class="div-round box-lm" id="boxe"></div>
+                    <div class="div-round box-lm" id="boxf"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重新開始  -->
+        <div id="conSet">
+            <input type="button" value="Start" class="btn btn-primary" onclick="init();">
+            <input type="button" value="ReStart" class="btn btn-primary" onclick="if(window.confirm('您確定重新開始嗎？')){init();}">
+        </div>
+
+        <!-- 提示結束 -->
+        <div id="danger">
+        </div>
+    </div>
+</body>
+</html>
