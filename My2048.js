@@ -17,6 +17,10 @@ function init()
 	/// <summary>
 	/// 初始化
 	/// </summary>
+    
+    time =0;
+    if(t != undefined)
+        clearTimeout(t);
     t = setInterval(showtime, 1000);
     score = 0;
     max = 0;
