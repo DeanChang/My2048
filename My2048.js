@@ -14,12 +14,12 @@ var t;
 // 初始化
 function init()
 {
-	/// <summary>
-	/// 初始化
-	/// </summary>
-    
-    time =0;
-    if(t != undefined)
+    /// <summary>
+    /// 初始化
+    /// </summary>
+
+    time = 0;
+    if (t != undefined)
         clearTimeout(t);
     t = setInterval(showtime, 1000);
     score = 0;
@@ -51,21 +51,21 @@ function init()
             isEnd();
         }
         // ↑ 
-        if (keyCode == 38 )
+        if (keyCode == 38)
         {
             $("#keys").text("↑");
             toUp();
             isEnd();
         }
         // → 
-        if (keyCode == 39 )
+        if (keyCode == 39)
         {
             $("#keys").text("→");
             toRight();
             isEnd();
         }
         // ↓ 
-        if (keyCode == 40 )
+        if (keyCode == 40)
         {
             $("#keys").text("↓");
             toDown();
@@ -76,12 +76,12 @@ function init()
 
 function isEnd()
 {
-	/// <summary>
-	/// 判斷是否結束
-	/// </summary>
-	/// <returns type="bool">true:結束  false:繼續</returns>
+    /// <summary>
+    /// 判斷是否結束
+    /// </summary>
+    /// <returns type="bool">true:結束  false:繼續</returns>
     var f = false;
-    
+
     if (locations.indexOf(0) == -1)
     {
         // 如果陣列中不含 0
@@ -155,9 +155,9 @@ function isEndY()
 
 function toDown()
 {
-	/// <summary>
+    /// <summary>
     /// 按下方向鍵 ↓
-	/// </summary>
+    /// </summary>
     // 向下
     for (var i = 0; i < 4; i++)
     {
@@ -233,8 +233,8 @@ function toUp()
 
 function CalNumAndPaint()
 {
-	/// <summary>
-	/// 計算相加值與 render 
+    /// <summary>
+    /// 計算相加值與 render 
     /// </summary>
     if (locations.indexOf(0) != -1)
     {
@@ -245,7 +245,7 @@ function CalNumAndPaint()
     {
         alert('此方向已無可以相加的數值，請換方向試試看');
     }
-    
+
 }
 
 function configurationD(i, r)
@@ -291,21 +291,23 @@ function configurationL(i, r)
 
 function makeArray(r)
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="r"></param>
-	/// <returns type=""></returns>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="r"></param>
+    /// <returns type=""></returns>
     if (!isZero(r))
     {
-        // 把陣列中 0 往後移動
-
-        for (var n = 0; n < 3; n++)
+        // 把陣列中 0 往後移動，重複移動 3 次(3格)
+        for (var i = 0; i < 3; i++)
         {
-            if (r[n] == 0)
+            for (var n = 0; n < 3; n++)
             {
-                r[n] = r[n + 1];
-                r[n + 1] = 0;
+                if (r[n] == 0)
+                {
+                    r[n] = r[n + 1];
+                    r[n + 1] = 0;
+                }
             }
         }
     }
@@ -331,9 +333,9 @@ function makeArray(r)
 // 畫出點的位置
 function paint()
 {
-	/// <summary>
+    /// <summary>
     /// 畫出點的位置
-	/// </summary>
+    /// </summary>
     for (var i = 0; i < 16; i++)
     {
         $("#box" + keys[i]).text((locations[i] == 0) ? "" : locations[i]);
@@ -353,10 +355,10 @@ function paint()
 // 隨機產生兩個數
 function createFixedNum()
 {
-	/// <summary>
-	/// 隨機產生兩個數
-	/// </summary>
-	/// <returns type=""></returns>
+    /// <summary>
+    /// 隨機產生兩個數
+    /// </summary>
+    /// <returns type=""></returns>
     // 產生 2 或 4;
     // 產生 2 的機率是 0.8
     return Math.random() < 0.8 ? 2 : 4;
@@ -365,10 +367,10 @@ function createFixedNum()
 // 產生的位置
 function createLocation()
 {
-	/// <summary>
-	/// 產生的位置
-	/// </summary>
-	/// <returns type=""></returns>
+    /// <summary>
+    /// 產生的位置
+    /// </summary>
+    /// <returns type=""></returns>
     // 在空位置中隨機產生
     var num = Math.floor(Math.random() * 16);
     // 如果該位置有資料，就重新產生
@@ -381,19 +383,19 @@ function createLocation()
 
 function isZero(m)
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="m"></param>
-	/// <returns type=""></returns>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="m"></param>
+    /// <returns type=""></returns>
     return m[0] == 0 && m[1] == 0 && m[2] == 0 && m[3] == 0;
 }
 
 // 計算時間
 function showtime()
 {
-	/// <summary>
+    /// <summary>
     /// 計算時間
-	/// </summary>
+    /// </summary>
     $("#time").text("使用時間：" + (++time) + " 秒");
 }
